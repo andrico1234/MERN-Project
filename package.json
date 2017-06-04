@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "live-start": "node ./bin/www",
     "start": "nodemon ./bin/www"
   },
   "enginge": {
-    "node": "~6.9.5",
-    "npm": "~3.10.10"
+    "node": "~8.0.0",
+    "npm": "~5.0.0"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
