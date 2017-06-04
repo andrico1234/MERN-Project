@@ -1,13 +1,21 @@
 body {
   background-color: $background-primary;
-  padding: 40px 10px;
+  padding: 40px 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  @media (min-width: $breakpoint-medium) {
+    padding: 0 10%;
+  }
 }
 
 h1 {
-  color: $font-color-primary;
+  color: $font-color-secondary;
+  font-family: $font-family-header;
 }
 
 p {
-  color: $font-color-secondary;
+  color: $font-color-primary;
+  font: {
+    family: $font-family-text-primary;
+    weight: $font-weight-light;
+  }
 }
