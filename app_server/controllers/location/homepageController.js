@@ -1,6 +1,6 @@
 var homepageController = (req, res) => {
 
-    res.render('index', {title: 'Express'});
+    res.render('index', {title: 'Brockley Cafe Crawl'});
 };
 
 module.exports = {

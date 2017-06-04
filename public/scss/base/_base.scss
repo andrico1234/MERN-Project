@@ -9,7 +9,14 @@ body {
 
 h1 {
   color: $font-color-secondary;
-  font-family: $font-family-header;
+  font: {
+    family: $font-family-header;
+    size: $font-size-large;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    font-size: $font-size-xlarge;
+  }
 }
 
 p {
