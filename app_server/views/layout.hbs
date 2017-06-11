@@ -8,8 +8,31 @@
         <link rel='stylesheet' href='/css/application.css'/>
     </head>
     <body>
-        <div class="body-wrapper">
+        <nav>
+            <h3 class="nav-header">
+                <a class="nav-logo" href="/">Cafe Crawl</a>
+            </h3>
+            <ul class="nav-list">
+                <li class="nav-listitem">
+                    <p>
+                        <a href="/about/">About</a>
+                    </p>
+                </li>
+                <li class="nav-listitem">
+                    <p>
+                        <a href="/">Generic</a>
+                    </p>
+                </li>
+            </ul>
+            <div class="nav-burger-container" data-toggle="collapse" data-target=".navbar-main">
+                <img class="nav-burger" src="/images/burger-menu.svg">
+            </div>
+        </nav>
             {{{body}}}
-        </div>
+        <footer>
+            <div class="footer-container">
+                <p>&copy; Andrico Karoulla 2017</p>
+            </div>
+        </footer>
     </body>
 </html>

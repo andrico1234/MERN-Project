@@ -1,0 +1,7 @@
+footer {
+  padding: 0 10px;
+
+  @media (min-width: $breakpoint-medium) {
+    padding: 10px 5%;
+  }
+}

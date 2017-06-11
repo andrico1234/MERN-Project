@@ -1,21 +1,23 @@
 body {
   background-color: $background-primary;
-  padding: 40px 0;
+  box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  @media (min-width: $breakpoint-medium) {
-    padding: 0 10%;
-  }
+}
+
+a {
+  color: $font-color-primary;
+  text-decoration: none;
 }
 
 h1 {
   color: $font-color-secondary;
   font: {
     family: $font-family-header;
-    size: $font-size-large;
+    size: $font-size-xlarge;
   }
 
   @media (min-width: $breakpoint-medium) {
-    font-size: $font-size-xlarge;
+    font-size: $font-size-xxlarge;
   }
 }
 
@@ -25,4 +27,5 @@ p {
     family: $font-family-text-primary;
     weight: $font-weight-light;
   }
+  margin: 0;
 }

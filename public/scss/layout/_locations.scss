@@ -1,0 +1,13 @@
+.location-wrapper {
+  @include page-wrapper(0);
+}
+
+.location-list-heading {
+  h1, p {
+    margin: {
+      bottom: 0;
+      left: 10px;
+      right: 10px;
+    }
+  }
+}

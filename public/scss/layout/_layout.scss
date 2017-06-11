@@ -1,8 +1,7 @@
 .body-wrapper {
-  background-color: $background-primary;
-  padding: 0 10px;
+  @include page-wrapper(10px);
+}
 
-  @media (min-width: $breakpoint-medium) {
-    padding: 0 10%;
-  }
+.homepage-content {
+  margin: 1em 0;
 }

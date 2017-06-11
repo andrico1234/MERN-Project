@@ -1,0 +1,66 @@
+nav {
+  background-color: $color-lavendar;
+  border-bottom: 1px solid $color-charcoal;
+  box-shadow: 0 4px 10px -2px rgba(0,0,0,0.5);
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+
+  @media (min-width: $breakpoint-medium) {
+    padding: 10px 5%;
+  }
+}
+
+.nav-burger-container {
+  position: absolute;
+  top: 13px;
+  right: 30px;
+
+  .nav-burger {
+    display: inline-block;
+    width: 30px;
+
+    @media (min-width: $breakpoint-medium) {
+      display: none;
+    }
+  }
+}
+
+.nav-header {
+  font-family: $font-family-header;
+  margin: 10px;
+  width: 50%;
+
+  @media (min-width: $breakpoint-medium) {
+    float: left;
+    font-size: $font-size-xlarge;
+    margin: 0;
+    width: 200px;
+  }
+
+  a {
+    color: $color-paper;
+  }
+}
+
+.nav-list {
+  display: none;
+  float: left;
+
+  @media (min-width: $breakpoint-medium) {
+    display: inline-block;
+    margin: 0;
+    padding: 15px 0 0 0;
+  }
+
+  li {
+    display: inline;
+    float: left;
+    font-size: $font-size-large;
+    padding: 0 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
