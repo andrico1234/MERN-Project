@@ -10,10 +10,11 @@ $color-dusty: #96858f;
 $color-lavendar: #6d7993;
 $color-overcast: #9099a2;
 $color-paper: #d5d5d5;
+$color-white: lighten(#d5d5d5, 10%);
 
 // Colors
 
-$background-primary: $color-paper;
+$background-primary: $color-white;
 $background-secondary: $color-overcast;
 
 $font-background-secondary: $color-dusty;
@@ -33,4 +34,4 @@ $font-size-xlarge: 2em;
 $font-size-xxlarge: 3em;
 
 $font-weight-light: 300;
-$font-weight-heavy: 400;
+$font-weight-heavy: 600;

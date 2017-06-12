@@ -1,5 +1,10 @@
+.location-sidebar:after {
+  clear: both;
+  content: "";
+  display: table; }
+
 body {
-  background-color: #d5d5d5;
+  background-color: #efefef;
   box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
@@ -15,18 +20,18 @@ h1 {
     h1 {
       font-size: 3em; } }
 
-p {
+p, span {
   color: #373737;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 300;
   margin: 0; }
 
 .body-wrapper {
-  background-color: #d5d5d5;
+  background-color: #efefef;
   padding: 40px 10px; }
   @media (min-width: 768px) {
     .body-wrapper {
-      padding: 75px 5%; } }
+      padding: 75px 5% 60px 5%; } }
   .body-wrapper h1 {
     margin-top: 30px; }
     @media (min-width: 768px) {
@@ -37,17 +42,19 @@ p {
   margin: 1em 0; }
 
 footer {
-  padding: 0 10px; }
+  bottom: 0;
+  padding: 0 10px 10px 10px;
+  position: static; }
   @media (min-width: 768px) {
     footer {
       padding: 10px 5%; } }
 
 .location-wrapper {
-  background-color: #d5d5d5;
+  background-color: #efefef;
   padding: 40px 0; }
   @media (min-width: 768px) {
     .location-wrapper {
-      padding: 75px 5%; } }
+      padding: 75px 5% 60px 5%; } }
   .location-wrapper h1 {
     margin-top: 30px; }
     @media (min-width: 768px) {
@@ -65,7 +72,8 @@ nav {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.5);
   padding: 5px;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 10; }
   @media (min-width: 768px) {
     nav {
       padding: 10px 5%; } }
@@ -101,25 +109,40 @@ nav {
     .nav-list {
       display: inline-block;
       margin: 0;
-      padding: 15px 0 0 0; } }
+      padding: 23px 0 0 0; } }
   .nav-list li {
     display: inline;
     float: left;
-    font-size: 1.5em;
-    padding: 0 10px; }
+    font-size: 1em;
+    padding: 0 20px;
+    text-transform: uppercase; }
     .nav-list li p {
       margin: 0; }
 
 .location-list-wrapper {
-  background-color: #96858f;
   margin: 15px 0;
   width: 100%; }
+  @media (min-width: 768px) {
+    .location-list-wrapper {
+      float: left;
+      width: 60%; } }
 
 .location-list-item {
-  border-bottom: 1px solid #373737;
-  padding-bottom: 25px; }
-  .location-list-item:first-child {
-    border-top: 1px solid #373737; }
+  background-color: #96858f;
+  border-top: 1px solid #373737;
+  padding-bottom: 15px;
+  position: relative; }
+  .location-list-item:last-child {
+    border-bottom: 1px solid #373737; }
+  @media (min-width: 768px) {
+    .location-list-item {
+      border: 1px solid #576176; }
+      .location-list-item:first-of-type {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; }
+      .location-list-item:last-of-type {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px; } }
   .location-list-item h3 {
     color: #d5d5d5;
     font-family: "Pacifico", cursive;
@@ -127,6 +150,37 @@ nav {
     margin: 10px 0;
     padding-left: 10px; }
   .location-list-item p {
-    padding-left: 10px; }
+    padding-bottom: 5px; }
+  .location-list-item span {
+    background-color: #d5d5d5;
+    border-radius: 15px;
+    padding: 5px;
+    color: #6a6a6a;
+    display: inline-block;
+    font-weight: 600;
+    margin-left: 5px; }
+    .location-list-item span:first-of-type {
+      margin-left: 10px; }
+
+.location-address, .location-facilities {
+  padding-left: 10px; }
+
+.location-stop {
+  background-color: #373737;
+  border-radius: 15px;
+  padding: 5px;
+  color: #d5d5d5;
+  position: absolute;
+  right: 10px;
+  top: 19px; }
+
+.location-sidebar {
+  font-size: 1.5em;
+  padding: 0 10px; }
+  @media (min-width: 768px) {
+    .location-sidebar {
+      margin: 0 0 0 auto;
+      padding-top: 11px;
+      width: 35%; } }
 
 /*# sourceMappingURL=application.css.map */

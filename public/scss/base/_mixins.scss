@@ -1,9 +1,23 @@
+@mixin border-background($color, $radius: 3px) {
+  background-color: $color;
+  border-radius: $radius;
+  padding: 5px;
+}
+
+%clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
 @mixin page-wrapper($paddingSides) {
   background-color: $background-primary;
   padding: 40px $paddingSides;
 
   @media (min-width: $breakpoint-medium) {
-    padding: 75px 5%;
+    padding: 75px 5% 60px 5%;
   }
 
   h1 {

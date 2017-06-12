@@ -1,15 +1,39 @@
 .location-list-wrapper {
-  background-color: $color-dusty;
   margin: 15px 0;
   width: 100%;
+
+  @media (min-width: $breakpoint-medium) {
+    float: left;
+    width: 60%;
+  }
 }
 
 .location-list-item {
-  border-bottom: 1px solid $color-charcoal;
-  padding-bottom: 25px;
+  background-color: $color-dusty;
+  border-top: 1px solid $color-charcoal;
+  padding-bottom: 15px;
+  position: relative;
 
-  &:first-child {
-    border-top: 1px solid $color-charcoal;
+  &:last-child {
+    border-bottom: 1px solid $color-charcoal;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    border: 1px solid darken($color-lavendar, 10%);
+
+    &:first-of-type {
+      border-top: {
+        left-radius: 5px;
+        right-radius: 5px;
+      }
+    }
+
+    &:last-of-type {
+      border-bottom: {
+        left-radius: 5px;
+        right-radius: 5px;
+      }
+    }
   }
 
   h3 {
@@ -23,6 +47,30 @@
   }
 
   p {
-    padding-left: 10px;
+    padding-bottom: 5px;
   }
+
+  span {
+    @include border-background($color-paper, 15px);
+    color: lighten($color-charcoal, 20%);
+    display: inline-block;
+    font-weight: $font-weight-heavy;
+    margin-left: 5px;
+
+    &:first-of-type {
+      margin-left: 10px;
+    }
+  }
+}
+
+.location-address, .location-facilities {
+  padding-left: 10px;
+}
+
+.location-stop {
+  @include border-background($color-charcoal, 15px);
+  color: $color-paper;
+  position: absolute;
+  right: 10px;
+  top: 19px;
 }
