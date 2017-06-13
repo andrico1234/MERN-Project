@@ -1,6 +1,6 @@
 var locationController = (req, res) => {
 
-    res.render('locations-list', {
+    res.render('location', {
         address: '317 Brockley Road',
         facilities: 'Wifi',
         img: '/orchardpic',

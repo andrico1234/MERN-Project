@@ -40,7 +40,7 @@ p, span {
   margin: 1em 0; }
 
 footer {
-  background-color: #4d5b5b;
+  background-color: #373737;
   bottom: 0;
   color: #efefef;
   padding: 0 10px 10px 10px;
@@ -63,14 +63,37 @@ footer {
     @media (min-width: 768px) {
       .location-wrapper h1 {
         margin: 0; } }
-
-.location-list-heading h1, .location-list-heading p {
-  margin-bottom: 0;
-  margin-left: 10px;
-  margin-right: 10px; }
   @media (min-width: 768px) {
-    .location-list-heading h1, .location-list-heading p {
-      margin-left: 0; } }
+    .location-wrapper {
+      padding: 0 0 60px 0; } }
+
+.location-list-sidebar-wrapper {
+  margin: 0 5%; }
+
+.location-list-heading {
+  padding-top: 75%;
+  background-color: #373737;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .location-list-heading {
+      padding-top: 56.25%; } }
+  .location-list-heading h1 {
+    color: #efefef;
+    font-size: 3em;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%; }
+  .location-list-heading p {
+    color: #efefef;
+    position: absolute;
+    top: 70%;
+    width: 100%; }
+    @media (min-width: 768px) {
+      .location-list-heading p {
+        margin-left: 0; } }
 
 nav {
   background-color: #efefef;
@@ -136,12 +159,12 @@ nav {
       width: 60%; } }
 
 .location-list-item {
-  background-color: #567086;
+  background-color: #d5d5d5;
   margin: 10px 0;
   padding: 5px 0 10px 0;
   position: relative; }
   .location-list-item h3 {
-    color: #efefef;
+    color: #d66a00;
     font-family: "Poiret One", "Oxygen", sans-serif;
     font-size: 1.5em;
     margin: 10px 0;
@@ -163,7 +186,7 @@ nav {
   padding-left: 10px; }
 
 .location-stop {
-  background-color: #202930;
+  background-color: #373737;
   border-radius: 15px;
   padding: 5px;
   color: #efefef;

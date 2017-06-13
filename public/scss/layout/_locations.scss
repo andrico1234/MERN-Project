@@ -1,14 +1,42 @@
 .location-wrapper {
   @include page-wrapper(0);
+
+  @media (min-width: $breakpoint-medium) {
+    padding: 0 0 60px 0;
+  }
+}
+
+.location-list-sidebar-wrapper {
+  margin: 0 5%;
 }
 
 .location-list-heading {
-  h1, p {
-    margin: {
-      bottom: 0;
-      left: 10px;
-      right: 10px;
-    }
+  @include responsive-ratio(4, 3);
+  //background: url("../../images/coffee-shop-mobile.png") round;
+  background-color: $background-dark;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  @media (min-width: $breakpoint-medium) {
+    @include responsive-ratio(16, 9);
+    //background: url("../../images/coffee-shop-background-desktop.jpg") round;
+  }
+
+  h1 {
+    color: $font-color-light;
+    font-size: $font-size-xxlarge;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+
+  }
+  p {
+    color: $font-color-light;
+    position: absolute;
+    top: 70%;
+    width: 100%;
 
     @media (min-width: $breakpoint-medium) {
       margin-left: 0;
