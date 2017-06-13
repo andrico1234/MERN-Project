@@ -1,9 +1,15 @@
 footer {
+  background-color: $color-duskyGreen;
   bottom: 0;
+  color: $font-color-light;
   padding: 0 10px 10px 10px;
   position: static;
 
   @media (min-width: $breakpoint-medium) {
     padding: 10px 5%;
   }
+}
+
+.footer-container p {
+    color: $font-color-light;
 }

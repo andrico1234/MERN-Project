@@ -1,16 +1,16 @@
 body {
   background-color: $background-primary;
   box-sizing: border-box;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px $font-family-text-secondary;
 }
 
 a {
-  color: $font-color-primary;
+  color: $font-color-bright;
   text-decoration: none;
 }
 
 h1 {
-  color: $font-color-secondary;
+  color: $font-color-primary;
   font: {
     family: $font-family-header;
     size: $font-size-xlarge;
@@ -22,10 +22,6 @@ h1 {
 }
 
 p, span {
-  color: $font-color-primary;
-  font: {
-    family: $font-family-text-primary;
-    weight: $font-weight-light;
-  }
+  color: $font-color-secondary;
   margin: 0;
 }

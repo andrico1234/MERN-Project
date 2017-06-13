@@ -5,27 +5,34 @@ $breakpoint-large: 1024px;
 
 // Globals
 
+$color-orange: #d66a00;
+$color-offWhite: lighten(#d5d5d5, 10%);
+$color-greyBlue: #425667;
+$color-duskyGreen: #4d5b5b;
+$color-navyBlue: #202930;
 $color-charcoal: #373737;
-$color-dusty: #96858f;
-$color-lavendar: #6d7993;
-$color-overcast: #9099a2;
-$color-paper: #d5d5d5;
-$color-white: lighten(#d5d5d5, 10%);
 
 // Colors
 
-$background-primary: $color-white;
-$background-secondary: $color-overcast;
+$background-primary: $color-offWhite;
+$background-secondary: $color-greyBlue;
+$background-dark: $color-navyBlue;
+$background-body: $color-duskyGreen;
 
-$font-background-secondary: $color-dusty;
+$border-color-primary: $color-charcoal;
+$border-color-secondary: $color-navyBlue;
+
+$font-background-secondary: $color-navyBlue;
 $font-color-primary: $color-charcoal;
-$font-color-secondary: $color-lavendar;
+$font-color-secondary: $color-navyBlue;
+$font-color-bright: $color-orange;
+$font-color-light: $color-offWhite;
 
 // Font
 
-$font-family-header: 'Pacifico', cursive;  ;
-$font-family-text-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;;
-$font-family-text-secondary: 'Montserrat', sans-serif;;
+$font-family-header: 'Poiret One', 'Oxygen', sans-serif;
+$font-family-text-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-family-text-secondary: 'Montserrat', sans-serif;
 
 $font-size-small: 0.8em;
 $font-size-medium: 1em;

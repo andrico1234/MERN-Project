@@ -9,35 +9,13 @@
 }
 
 .location-list-item {
-  background-color: $color-dusty;
-  border-top: 1px solid $color-charcoal;
-  padding-bottom: 15px;
+  background-color: lighten($background-secondary, 10%);
+  margin: 10px 0;
+  padding: 5px 0 10px 0;
   position: relative;
 
-  &:last-child {
-    border-bottom: 1px solid $color-charcoal;
-  }
-
-  @media (min-width: $breakpoint-medium) {
-    border: 1px solid darken($color-lavendar, 10%);
-
-    &:first-of-type {
-      border-top: {
-        left-radius: 5px;
-        right-radius: 5px;
-      }
-    }
-
-    &:last-of-type {
-      border-bottom: {
-        left-radius: 5px;
-        right-radius: 5px;
-      }
-    }
-  }
-
   h3 {
-    color: $color-paper;
+    color: $font-color-light;
     font: {
       family: $font-family-header;
       size: $font-size-large;
@@ -51,7 +29,7 @@
   }
 
   span {
-    @include border-background($color-paper, 15px);
+    @include border-background($font-color-light, 15px);
     color: lighten($color-charcoal, 20%);
     display: inline-block;
     font-weight: $font-weight-heavy;
@@ -68,8 +46,8 @@
 }
 
 .location-stop {
-  @include border-background($color-charcoal, 15px);
-  color: $color-paper;
+  @include border-background($background-dark, 15px);
+  color: $font-color-light;
   position: absolute;
   right: 10px;
   top: 19px;

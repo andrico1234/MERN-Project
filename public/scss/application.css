@@ -6,24 +6,22 @@
 body {
   background-color: #efefef;
   box-sizing: border-box;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Montserrat", sans-serif; }
 
 a {
-  color: #373737;
+  color: #d66a00;
   text-decoration: none; }
 
 h1 {
-  color: #6d7993;
-  font-family: "Pacifico", cursive;
+  color: #373737;
+  font-family: "Poiret One", "Oxygen", sans-serif;
   font-size: 2em; }
   @media (min-width: 768px) {
     h1 {
       font-size: 3em; } }
 
 p, span {
-  color: #373737;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: 300;
+  color: #202930;
   margin: 0; }
 
 .body-wrapper {
@@ -42,12 +40,17 @@ p, span {
   margin: 1em 0; }
 
 footer {
+  background-color: #4d5b5b;
   bottom: 0;
+  color: #efefef;
   padding: 0 10px 10px 10px;
   position: static; }
   @media (min-width: 768px) {
     footer {
       padding: 10px 5%; } }
+
+.footer-container p {
+  color: #efefef; }
 
 .location-wrapper {
   background-color: #efefef;
@@ -65,12 +68,15 @@ footer {
   margin-bottom: 0;
   margin-left: 10px;
   margin-right: 10px; }
+  @media (min-width: 768px) {
+    .location-list-heading h1, .location-list-heading p {
+      margin-left: 0; } }
 
 nav {
-  background-color: #6d7993;
+  background-color: #efefef;
   border-bottom: 1px solid #373737;
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.5);
-  padding: 5px;
+  padding: 5px 5px 5px 0;
   position: fixed;
   width: 100%;
   z-index: 10; }
@@ -80,17 +86,18 @@ nav {
 
 .nav-burger-container {
   position: absolute;
-  top: 13px;
-  right: 30px; }
+  top: 17px;
+  right: 35px; }
   .nav-burger-container .nav-burger {
     display: inline-block;
-    width: 30px; }
+    width: 20px; }
     @media (min-width: 768px) {
       .nav-burger-container .nav-burger {
         display: none; } }
 
 .nav-header {
-  font-family: "Pacifico", cursive;
+  font-family: "Poiret One", "Oxygen", sans-serif;
+  font-size: 1.5em;
   margin: 10px;
   width: 50%; }
   @media (min-width: 768px) {
@@ -98,9 +105,9 @@ nav {
       float: left;
       font-size: 2em;
       margin: 0;
-      width: 200px; } }
+      width: 40%; } }
   .nav-header a {
-    color: #d5d5d5; }
+    color: #373737; }
 
 .nav-list {
   display: none;
@@ -117,6 +124,7 @@ nav {
     padding: 0 20px;
     text-transform: uppercase; }
     .nav-list li p {
+      color: #d66a00;
       margin: 0; }
 
 .location-list-wrapper {
@@ -128,31 +136,20 @@ nav {
       width: 60%; } }
 
 .location-list-item {
-  background-color: #96858f;
-  border-top: 1px solid #373737;
-  padding-bottom: 15px;
+  background-color: #567086;
+  margin: 10px 0;
+  padding: 5px 0 10px 0;
   position: relative; }
-  .location-list-item:last-child {
-    border-bottom: 1px solid #373737; }
-  @media (min-width: 768px) {
-    .location-list-item {
-      border: 1px solid #576176; }
-      .location-list-item:first-of-type {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px; }
-      .location-list-item:last-of-type {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px; } }
   .location-list-item h3 {
-    color: #d5d5d5;
-    font-family: "Pacifico", cursive;
+    color: #efefef;
+    font-family: "Poiret One", "Oxygen", sans-serif;
     font-size: 1.5em;
     margin: 10px 0;
     padding-left: 10px; }
   .location-list-item p {
     padding-bottom: 5px; }
   .location-list-item span {
-    background-color: #d5d5d5;
+    background-color: #efefef;
     border-radius: 15px;
     padding: 5px;
     color: #6a6a6a;
@@ -166,10 +163,10 @@ nav {
   padding-left: 10px; }
 
 .location-stop {
-  background-color: #373737;
+  background-color: #202930;
   border-radius: 15px;
   padding: 5px;
-  color: #d5d5d5;
+  color: #efefef;
   position: absolute;
   right: 10px;
   top: 19px; }
@@ -180,7 +177,7 @@ nav {
   @media (min-width: 768px) {
     .location-sidebar {
       margin: 0 0 0 auto;
-      padding-top: 11px;
+      padding-top: 20px;
       width: 35%; } }
 
 /*# sourceMappingURL=application.css.map */
