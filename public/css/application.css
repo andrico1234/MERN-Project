@@ -1,7 +1,23 @@
-.location-sidebar:after {
+.location-detail-wrapper button {
+  background-color: #efefef;
+  border: none;
+  border-radius: 2px;
+  color: #373737;
+  font-size: 0.9em;
+  height: 40px;
+  margin: 10px 0;
+  width: 90px; }
+
+.sidebar:after {
   clear: both;
   content: "";
   display: table; }
+
+.location-detail-wrapper .facilities, .location-detail-wrapper .map, .location-detail-wrapper .opening-hours, .location-detail-wrapper .review-container, .location-list-sidebar-wrapper .list-item {
+  background-color: #e2e2e2;
+  margin: 10px 0;
+  padding: 5px 0 10px 0;
+  position: relative; }
 
 body {
   background-color: #efefef;
@@ -20,16 +36,20 @@ h1 {
     h1 {
       font-size: 3em; } }
 
+h3 {
+  color: #d66a00;
+  margin: 5px 0 10px 0; }
+
 p, span {
   color: #202930;
   margin: 0; }
 
 .body-wrapper {
   background-color: #efefef;
-  padding: 40px 10px; }
+  padding: 55px 10px; }
   @media (min-width: 768px) {
     .body-wrapper {
-      padding: 75px 5% 60px 5%; } }
+      padding: 75px 10px 60px 10px; } }
   .body-wrapper h1 {
     margin-top: 30px; }
     @media (min-width: 768px) {
@@ -43,21 +63,21 @@ footer {
   background-color: #373737;
   bottom: 0;
   color: #efefef;
-  padding: 0 10px 10px 10px;
   position: static; }
   @media (min-width: 768px) {
     footer {
       padding: 10px 5%; } }
 
 .footer-container p {
-  color: #efefef; }
+  color: #efefef;
+  padding: 5%; }
 
 .location-wrapper {
   background-color: #efefef;
-  padding: 40px 0; }
+  padding: 55px 0; }
   @media (min-width: 768px) {
     .location-wrapper {
-      padding: 75px 5% 60px 5%; } }
+      padding: 75px 0 60px 0; } }
   .location-wrapper h1 {
     margin-top: 30px; }
     @media (min-width: 768px) {
@@ -150,55 +170,122 @@ nav {
       color: #d66a00;
       margin: 0; }
 
-.location-list-wrapper {
+.location-detail-wrapper {
+  background-color: #efefef;
+  padding: 55px 0; }
+  @media (min-width: 768px) {
+    .location-detail-wrapper {
+      padding: 75px 0 60px 0; } }
+  .location-detail-wrapper h1 {
+    margin-top: 30px; }
+    @media (min-width: 768px) {
+      .location-detail-wrapper h1 {
+        margin: 0; } }
+  .location-detail-wrapper button {
+    position: absolute;
+    right: 20px;
+    top: 0; }
+  .location-detail-wrapper .container {
+    margin: 10px auto;
+    width: 90%; }
+    @media (min-width: 768px) {
+      .location-detail-wrapper .container {
+        float: left;
+        padding-left: 5%;
+        width: 50%; } }
+  .location-detail-wrapper .facilities h3, .location-detail-wrapper .map h3, .location-detail-wrapper .opening-hours h3, .location-detail-wrapper .review-container h3 {
+    padding-left: 10px; }
+  .location-detail-wrapper .facilities span {
+    background-color: #efefef;
+    border-radius: 15px;
+    display: inline-block;
+    font-weight: 600;
+    margin-left: 5px;
+    padding: 5px;
+    color: #6a6a6a; }
+  .location-detail-wrapper .heading {
+    border-bottom: 1px solid #373737;
+    display: flex; }
+    .location-detail-wrapper .heading h1 {
+      align-self: center;
+      flex-grow: 3;
+      margin: 18px 0;
+      padding: 0 5%; }
+    .location-detail-wrapper .heading h3 {
+      align-self: center;
+      flex-grow: 1; }
+  .location-detail-wrapper .map {
+    height: 50%; }
+    .location-detail-wrapper .map iframe {
+      display: block;
+      height: 50vh;
+      margin: 0 auto;
+      width: 90%; }
+  .location-detail-wrapper .opening-hours p, .location-detail-wrapper .review p, .location-detail-wrapper .review-info {
+    padding: 5px 10px; }
+  .location-detail-wrapper .review {
+    padding: 10px 0; }
+    .location-detail-wrapper .review:nth-child(even) {
+      background-color: #e2e2e2; }
+      .location-detail-wrapper .review:nth-child(even) p {
+        color: #373737; }
+    .location-detail-wrapper .review:nth-child(odd) {
+      background-color: #efefef; }
+  .location-detail-wrapper .review-container {
+    margin: 10px auto 20px auto;
+    padding-bottom: 0;
+    width: 90%; }
+    @media (min-width: 768px) {
+      .location-detail-wrapper .review-container {
+        float: left;
+        margin-left: 5%;
+        width: 90%; } }
+    .location-detail-wrapper .review-container .header {
+      height: 40px; }
+
+.location-list-sidebar-wrapper .list-wrapper {
   margin: 15px 0;
   width: 100%; }
   @media (min-width: 768px) {
-    .location-list-wrapper {
+    .location-list-sidebar-wrapper .list-wrapper {
       float: left;
       width: 60%; } }
-
-.location-list-item {
-  background-color: #d5d5d5;
+.location-list-sidebar-wrapper .list-item h3 {
+  font-family: "Poiret One", "Oxygen", sans-serif;
+  font-size: 1.5em;
   margin: 10px 0;
-  padding: 5px 0 10px 0;
-  position: relative; }
-  .location-list-item h3 {
-    color: #d66a00;
-    font-family: "Poiret One", "Oxygen", sans-serif;
-    font-size: 1.5em;
-    margin: 10px 0;
-    padding-left: 10px; }
-  .location-list-item p {
-    padding-bottom: 5px; }
-  .location-list-item span {
-    background-color: #efefef;
-    border-radius: 15px;
-    padding: 5px;
-    color: #6a6a6a;
-    display: inline-block;
-    font-weight: 600;
-    margin-left: 5px; }
-    .location-list-item span:first-of-type {
-      margin-left: 10px; }
-
-.location-address, .location-facilities {
   padding-left: 10px; }
-
-.location-stop {
+.location-list-sidebar-wrapper .list-item p {
+  padding-bottom: 5px; }
+.location-list-sidebar-wrapper .list-item span {
+  background-color: #efefef;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+  padding: 5px;
+  color: #6a6a6a; }
+  .location-list-sidebar-wrapper .list-item span:first-of-type {
+    margin-left: 10px; }
+.location-list-sidebar-wrapper .address, .location-list-sidebar-wrapper .facilities {
+  padding-left: 10px; }
+.location-list-sidebar-wrapper .stop {
   background-color: #373737;
   border-radius: 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
   padding: 5px;
   color: #efefef;
   position: absolute;
   right: 10px;
   top: 19px; }
 
-.location-sidebar {
+.sidebar {
   font-size: 1.5em;
-  padding: 0 10px; }
+  padding: 0 5%; }
   @media (min-width: 768px) {
-    .location-sidebar {
+    .sidebar {
       margin: 0 0 0 auto;
       padding-top: 20px;
       width: 35%; } }

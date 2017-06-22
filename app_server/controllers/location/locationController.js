@@ -1,12 +1,19 @@
 var locationController = (req, res) => {
 
-    res.render('location', {
+    res.render('location-detail', {
         address: '317 Brockley Road',
-        facilities: 'Wifi',
+        description: 'get from google',
         img: '/orchardpic',
-        name: 'The Orchard',
+        locationMap: '',
+        openingHours: '10am-10pm',
+        reviews: [{
+          rating: 5,
+            reviewerName: 'Pablo',
+            reviewData: '12/04/1993',
+            reviewText: 'excellent shit dawg'
+        }],
         stop: 1,
-        title: 'Home',
+        title: 'The Orchard',
         twitter: '/twitterlink'
     });
 };

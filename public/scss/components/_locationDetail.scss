@@ -1,0 +1,96 @@
+.location-detail-wrapper {
+  @include page-wrapper(0);
+
+  button {
+    @extend %button;
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
+
+  .container {
+    margin: 10px auto;
+    width: 90%;
+
+    @media (min-width: $breakpoint-medium) {
+      float: left;
+      padding-left: 5%;
+      width: 50%;
+    }
+  }
+
+  .facilities, .map, .opening-hours, .review-container {
+    @extend %item-background;
+
+    h3 {
+      padding-left: 10px;
+    }
+  }
+
+  .facilities span {
+    @include span-item($font-color-light, 15px);
+    color: lighten($color-charcoal, 20%);
+  }
+
+  .heading {
+    border-bottom: 1px solid $color-charcoal;
+    display: flex;
+
+    h1 {
+      align-self: center;
+      flex-grow: 3;
+      margin: 18px 0;
+      padding: 0 5%;
+    }
+
+    h3 {
+      align-self: center;
+      flex-grow: 1;
+    }
+  }
+
+  .map {
+    height: 50%;
+
+    iframe {
+      display: block;
+      height: 50vh;
+      margin: 0 auto;
+      width: 90%;
+    }
+  }
+
+  .opening-hours p, .review p, .review-info {
+    padding: 5px 10px;
+  }
+
+  .review {
+    padding: 10px 0;
+
+    &:nth-child(even) {
+      background-color: darken($background-primary, 5%);
+      p {
+        color: $color-charcoal;
+      }
+    }
+    &:nth-child(odd) {
+      background-color: $background-primary;
+    }
+  }
+
+  .review-container {
+    margin: 10px auto 20px auto;
+    padding-bottom: 0;
+    width: 90%;
+
+    @media (min-width: $breakpoint-medium) {
+      float: left;
+      margin-left: 5%;
+      width: 90%;
+    }
+
+    .header {
+      height: 40px;
+    }
+  }
+}

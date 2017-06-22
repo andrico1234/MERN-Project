@@ -1,54 +1,50 @@
-.location-list-wrapper {
-  margin: 15px 0;
-  width: 100%;
+.location-list-sidebar-wrapper {
 
-  @media (min-width: $breakpoint-medium) {
-    float: left;
-    width: 60%;
-  }
-}
+  .list-wrapper {
+    margin: 15px 0;
+    width: 100%;
 
-.location-list-item {
-  background-color: darken($background-primary, 10%);
-  margin: 10px 0;
-  padding: 5px 0 10px 0;
-  position: relative;
-
-  h3 {
-    color: $font-color-bright;
-    font: {
-      family: $font-family-header;
-      size: $font-size-large;
+    @media (min-width: $breakpoint-medium) {
+      float: left;
+      width: 60%;
     }
-    margin: 10px 0;
+  }
+
+  .list-item {
+    @extend %item-background;
+
+    h3 {
+      font: {
+        family: $font-family-header;
+        size: $font-size-large;
+      }
+      margin: 10px 0;
+      padding-left: 10px;
+    }
+
+    p {
+      padding-bottom: 5px;
+    }
+
+    span {
+      @include span-item($font-color-light, 15px);
+      color: lighten($color-charcoal, 20%);
+
+      &:first-of-type {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .address, .facilities {
     padding-left: 10px;
   }
 
-  p {
-    padding-bottom: 5px;
+  .stop {
+    @include span-item($background-dark, 15px);
+    color: $font-color-light;
+    position: absolute;
+    right: 10px;
+    top: 19px;
   }
-
-  span {
-    @include border-background($font-color-light, 15px);
-    color: lighten($color-charcoal, 20%);
-    display: inline-block;
-    font-weight: $font-weight-heavy;
-    margin-left: 5px;
-
-    &:first-of-type {
-      margin-left: 10px;
-    }
-  }
-}
-
-.location-address, .location-facilities {
-  padding-left: 10px;
-}
-
-.location-stop {
-  @include border-background($background-dark, 15px);
-  color: $font-color-light;
-  position: absolute;
-  right: 10px;
-  top: 19px;
 }
