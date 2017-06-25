@@ -1,0 +1,70 @@
+.location-review-form-wrapper {
+  @include page-wrapper(0);
+
+  button {
+    @extend %button;
+    background-color: white;
+    display: block;
+    margin: 0 0 0 auto;
+
+    @media (min-width: $breakpoint-medium) {
+      margin-top: 20px;
+      width: 20%;
+    }
+  }
+
+  header {
+    border-bottom: 1px solid $color-charcoal;
+    margin-bottom: 10px;
+
+    h1 {
+      margin: 18px 0;
+      padding: 0 5%;
+    }
+  }
+
+  fieldset {
+    border: none;
+    padding: 15px;
+  }
+
+  .form-wrapper {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 90%;
+  }
+
+  input, select, textarea {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    padding: 12px 10px;
+    max-width: 100%;
+    width: 100%;
+
+    @media (min-width: $breakpoint-medium) {
+      margin: 0 0 0 auto;
+      width: 85%;
+    }
+  }
+
+  label {
+    color: $font-color-bright;
+
+    @media (min-width: $breakpoint-medium) {
+      display: inline-block;
+      position: relative;
+      top: 29px;
+      width: 10%;
+    }
+  }
+
+  select {
+    height: 40px;
+    padding: 0 10px;
+  }
+}
