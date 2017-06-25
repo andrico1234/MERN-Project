@@ -89,8 +89,20 @@
       width: 90%;
     }
 
-    .header {
-      height: 40px;
+    .review-info span {
+      display: inline-block;
+      font-size: $font-size-small;
+      padding-right: 15px;
+
+      &:first-of-type {
+        font-size: $font-size-medium;
+        font-weight: $font-weight-heavy;
+      }
     }
   }
+
+  .header {
+    height: 40px;
+  }
 }
+

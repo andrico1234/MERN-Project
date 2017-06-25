@@ -1,27 +1,27 @@
 <div class="location-detail-wrapper">
     <header>
         <h1>{{title}}</h1>
-        <h3>5/5</h3>
+        <h3>{{rating}}/5</h3>
     </header>
 
     <div class="container">
         <div class="wrapper">
             <div class="rating-address">
-                <p>123 Fake Street, BR22SD</p>
+                <p>{{address}}</p>
             </div>
             <div class="opening-hours">
                 <h3 class="header">Opening Hours</h3>
-                <p>Mon - Fri: 7am - 7pm</p>
-                <p>Sat: 9am - 10pm</p>
-                <p>Sun: Closed</p>
+                <p>Mon - Fri: {{openingHours.monFri}}</p>
+                <p>Sat: {{openingHours.sat}}</p>
+                <p>Sun: {{openingHours.sun}}</p>
             </div>
             <div class="facilities">
                 <h3 class="header">Facilities</h3>
-                <span>Dildos</span><span>Fisting</span>
+                {{#each facilities}}<span>{{facility}}</span>{{/each}}
             </div>
             <div class="map">
                 <h3 class="header">Location Map</h3>
-                <iframe frameborder="0" src="https://www.google.co.uk/maps/embed/v1/place?key=AIzaSyBE9cgGx0m_7Us1rJSjyLUmzEk8TZWnKqY&q=The+Orchard"></iframe>
+                <iframe frameborder="0" src={{locationMap}}></iframe>
             </div>
         </div>
     </div>
@@ -29,35 +29,18 @@
     <div class="review-container">
         <h3 class="header">Customer Reviews</h3>
         <button>Add Review</button>
-        <div class="review">
-            <div class="review-info">
-                <span>5/5</span> <span>Review Name</span> <span>Date</span>
+        {{#each reviews}}
+            <div class="review">
+                <div class="review-info">
+                    <span>{{reviewerName}}</span> <span>{{reviewDate}}</span>
+                    <span>{{rating}}/5</span>
+                </div>
+                <p class="comment">{{reviewText}}</p>
             </div>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-        </div>
-        <div class="review">
-            <div class="review-info">
-                <span>5/5</span> <span>Review Name</span> <span>Date</span>
-            </div>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-        </div>
-        <div class="review">
-            <div class="review-info">
-                <span>5/5</span> <span>Review Name</span> <span>Date</span>
-            </div>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-        </div>
+        {{/each}}
     </div>
 
     <div class="sidebar">
-        <p class="content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum."</p>
+        <p class="content">{{sidebar}}</p>
     </div>
 </div>

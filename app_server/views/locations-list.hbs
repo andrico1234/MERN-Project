@@ -1,41 +1,23 @@
 <div class="location-wrapper">
     <header>
         <h1>{{title}}</h1>
-        <p>Crawl through Brockley's best independent Cafes</p>
+        <p>{{subtitle}}</p>
     </header>
 
     <div class="location-list-sidebar-wrapper">
         <div class="list-wrapper">
-            <div class="list-item">
-                <h3 class="name">{{name}}</h3>
-                <p class="address">{{address}}</p>
-                <p class="facilities">{{facilities}}</p>
-                <p class="stop">No.{{stop}}</p>
-                <span>Hot Drinks</span><span>Brunch</span><span>Cakes</span>
-            </div>
-            <div class="list-item">
-                <h3 class="name">{{name}}</h3>
-                <p class="address">{{address}}</p>
-                <p class="facilities">{{facilities}}</p>
-                <p class="stop">No.{{stop}}</p>
-                <span>Hot Drinks</span><span>Brunch</span><span>Cakes</span>
-            </div>
-            <div class="list-item">
-                <h3 class="name">{{name}}</h3>
-                <p class="address">{{address}}</p>
-                <p class="facilities">{{facilities}}</p>
-                <p class="stop">No.{{stop}}</p>
-                <span>Hot Drinks</span><span>Brunch</span><span>Cakes</span>
-            </div>
+            {{#each locations}}
+                <div class="list-item">
+                    <h3 class="name">{{name}}</h3>
+                    <p class="address">{{address}}</p>
+                    {{#each facilities}}<span>{{facility}}</span>{{/each}}
+                    <p class="stop">No.{{stop}}</p>
+                </div>
+            {{/each}}
         </div>
     </div>
 
     <div class="sidebar">
-        <p class="sidebar-content">"Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <p class="sidebar-content">{{sidebar}}</p>
     </div>
 </div>

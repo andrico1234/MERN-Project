@@ -1,6 +1,8 @@
 var reviewController = (req, res) => {
 
-    res.render('location-review-form', {title: 'Add review'});
+    res.render('location-review-form', {
+        title: 'The Orchard'
+    });
 };
 
 module.exports = {

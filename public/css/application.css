@@ -229,8 +229,15 @@ nav {
         float: left;
         margin-left: 5%;
         width: 90%; } }
-    .location-detail-wrapper .review-container .header {
-      height: 40px; }
+    .location-detail-wrapper .review-container .review-info span {
+      display: inline-block;
+      font-size: 0.8em;
+      padding-right: 15px; }
+      .location-detail-wrapper .review-container .review-info span:first-of-type {
+        font-size: 1em;
+        font-weight: 600; }
+  .location-detail-wrapper .header {
+    height: 40px; }
 
 .location-review-form-wrapper {
   background-color: #efefef;
