@@ -44,16 +44,6 @@ p, span {
   color: #202930;
   margin: 0; }
 
-.body-wrapper {
-  background-color: #efefef;
-  padding: 55px 10px; }
-  @media (min-width: 768px) {
-    .body-wrapper {
-      padding: 75px 10px 60px 10px; } }
-
-.homepage-content {
-  margin: 1em 0; }
-
 footer {
   background-color: #373737;
   bottom: 0;
@@ -66,6 +56,23 @@ footer {
 .footer-container p {
   color: #efefef;
   padding: 5%; }
+
+.generic-page-wrapper {
+  background-color: #efefef;
+  padding: 55px 10px; }
+  @media (min-width: 768px) {
+    .generic-page-wrapper {
+      padding: 75px 10px 60px 10px; } }
+
+.content {
+  margin: 1em 0; }
+
+@media (min-width: 768px) {
+  .content, .subtitle, .title {
+    padding: 0 5%; } }
+@media (min-width: 1024px) {
+  .content, .subtitle, .title {
+    padding: 0 15%; } }
 
 .location-wrapper {
   background-color: #efefef;

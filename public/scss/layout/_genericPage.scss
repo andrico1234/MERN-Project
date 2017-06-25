@@ -1,0 +1,17 @@
+.generic-page-wrapper {
+  @include page-wrapper(10px);
+}
+
+.content {
+  margin: 1em 0;
+}
+
+.content, .subtitle, .title {
+  @media(min-width: $breakpoint-medium) {
+    padding: 0 5%;
+  }
+
+  @media(min-width: $breakpoint-large) {
+    padding: 0 15%;
+  }
+}
