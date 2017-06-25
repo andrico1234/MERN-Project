@@ -1,14 +1,14 @@
 var locationController = (req, res) => {
 
     res.render('location-detail', {
-        address: '317 Brockley Road, SE4 2QZ',
+        address: '340 Brockley Road, SE4 2BT',
         coords: {
-            lat: 51.463798,
-            long: -0.0377847
+            lat: 51.455703,
+            long: -0.036580
         },
         description: 'get from google',
-        facilities: [{facility: 'Coffee'}, {facility: 'Cakes'}, {facility: 'WiFi'}],
-        img: '/orchardpic',
+        facilities: [{facility: 'Coffee'}, {facility: 'Baby Chairs'}, {facility: 'WiFi'}],
+        img: '/arlopic',
         openingHours: {
             monFri: '7am - 7pm',
             sat: '9am - 10pm',
@@ -33,8 +33,8 @@ var locationController = (req, res) => {
             reviewText: 'excellent shit dawg'
         }],
         sidebar: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-        stop: 1,
-        title: 'The Orchard',
+        stop: 2,
+        title: 'Arlo and Moe',
         twitter: '/twitterlink'
     });
 };
