@@ -2,10 +2,13 @@ var locationController = (req, res) => {
 
     res.render('location-detail', {
         address: '317 Brockley Road, SE4 2QZ',
+        coords: {
+            lat: 51.463798,
+            long: -0.0377847
+        },
         description: 'get from google',
         facilities: [{facility: 'Coffee'}, {facility: 'Cakes'}, {facility: 'WiFi'}],
         img: '/orchardpic',
-        locationMap: 'https://www.google.co.uk/maps/embed/v1/place?key=AIzaSyBE9cgGx0m_7Us1rJSjyLUmzEk8TZWnKqY&q=The+Orchard',
         openingHours: {
             monFri: '7am - 7pm',
             sat: '9am - 10pm',

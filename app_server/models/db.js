@@ -37,7 +37,7 @@ process.once('SIGUSR2', () => {
 
 process.on('SIGINT', () => {
 
-    gracefulExit('hello').then(() => {
+    gracefulExit('Node app shutdown').then(() => {
 
         process.exit(0);
     });
@@ -50,3 +50,5 @@ process.on('SIGTERM', () => {
         process.exit(0);
     });
 });
+
+require('./locations');
