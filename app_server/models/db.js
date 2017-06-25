@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const PORT = 27017;
+const dbUri = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : 'mongodb://localhost:27017/cafecrawl';
 
-mongoose.connect(`mongodb://localhost:${PORT}/cafecrawl`);
+mongoose.connect(dbUri);
 
 mongoose.connection.on('connected', () => {
 
-    console.log(`Mongoose successfully connected to port ${PORT}`);
+    console.log(`Mongoose successfully connected to ${dbUri}`);
 });
 
 mongoose.connection.on('error', (err) => {
@@ -52,3 +52,8 @@ process.on('SIGTERM', () => {
 });
 
 require('./locations');
+
+// mongodb://heroku_sc76fj14:arcs87dlmdvgo8m3h09fvk6luv@ds135669.mlab.com:35669/heroku_sc76fj14
+
+// connect to remote DB by using
+// ~/mongo/bin/mongo ds135669.mlab.com:35669/heroku_sc76fj14 -u heroku_sc76fj14 -p arcs87dlmdvgo8m3h09fvk6luv
