@@ -52,8 +52,3 @@ process.on('SIGTERM', () => {
 });
 
 require('./locations');
-
-// mongodb://heroku_sc76fj14:arcs87dlmdvgo8m3h09fvk6luv@ds135669.mlab.com:35669/heroku_sc76fj14
-
-// connect to remote DB by using
-// ~/mongo/bin/mongo ds135669.mlab.com:35669/heroku_sc76fj14 -u heroku_sc76fj14 -p arcs87dlmdvgo8m3h09fvk6luv

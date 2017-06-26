@@ -1,4 +1,5 @@
 .idea/**
 .sass-cache/
+keys.txt
 node_modules/
 playground/
