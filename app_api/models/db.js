@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const dbUri = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : 'mongodb://localhost:27017/cafecrawl';
 
+mongoose.Promise = global.Promise;
 mongoose.connect(dbUri);
 
 mongoose.connection.on('connected', () => {

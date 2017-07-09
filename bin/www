@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-var app = require('../app');
-var debug = require('debug')('mean-project:server');
-var http = require('http');
+const app = require('../app');
+const debug = require('debug')('mean-project:server');
+const http = require('http');
 
 const port = process.env.PORT || 3000;
 app.set('port', port);
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 server.listen(port);
 server.on('error', onError);

@@ -1,23 +1,84 @@
-var mongoose = require('mongoose');
-var Loc = mongoose.model('Location');
+const {ObjectID} = require('mongodb');
+const mongoose = require('mongoose');
 
-var sendResponse = function(res, status, content) {
+const {Location} = require('../models/locations');
 
-    res.status(status);
-    res.json(content);
+const locationsCreate = (req, res) => {
+
+    let request = req.body.location;
+    let location = new Location({
+
+        title: request.title,
+        address: request.address,
+        coords: [parseFloat(request.lat), parseFloat(request.long)],
+        facilities: request.facilities.split(", "),
+        img: request.img,
+        openingHours: {
+            monFri: request.openingHours.monFri,
+            sat: request.openingHours.sat,
+            sun: request.openingHours.sun
+        },
+        rating: request.rating,
+        sidebar: request.sidebar,
+        stop: request.stop,
+        twitter: request.twitter
+    });
+
+    location.save().then((doc) => {
+
+        res.send(doc);
+    }).catch((err) => {
+
+        res.status(400).send(err);
+    });
 };
 
-var locationsListByDistance = function(req, res) {
+const locationsDeleteOne = (req, res) => {
 
-    sendResponse(res, 200, {"status": "success"});
+    return 1;
 };
 
-var locationsCreate = function(req, res) {
+const locationsList = (req, res) => {
 
-    sendResponse(res, 200, {"status": "success"});
+    Location.find().sort({'stop': 1}).then((location) => {
+
+        res.send({location});
+    }).catch((err) => {
+
+        res.status(404).send(err);
+    });
+};
+
+const locationsReadOne = (req, res) => {
+
+    let locationId = req.params.locationId;
+
+    if (!ObjectID.isValid(locationId)) {
+
+        return res.status(400).send();
+    }
+
+    Location.findOne({
+
+        _id: locationId
+    }).then((location) => {
+
+        res.send({location});
+    }).catch((err) => {
+
+        res.status(404).send(err);
+    });
+};
+
+const locationsUpdateOne = (req, res) => {
+
+    return 1;
 };
 
 module.exports = {
     locationsCreate,
-    locationsListByDistance
+    locationsDeleteOne,
+    locationsList,
+    locationsReadOne,
+    locationsUpdateOne,
 };

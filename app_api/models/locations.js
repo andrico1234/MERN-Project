@@ -1,25 +1,32 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var reviewsSchema = new mongoose.Schema({
-    rating: Number,
-    reviewerName: String,
+const reviewSchema = new mongoose.Schema({
+    rating: {
+        required: true,
+        type: Number
+    },
+    reviewerName: {
+        required: true,
+        type: String
+    },
+    reviewBody: String,
     reviewDate: {
         type: Date,
         "default": Date.now
-    },
-    reviewTest: String
+    }
 });
 
-var locationSchema = new mongoose.Schema({
+const locationSchema = new mongoose.Schema({
     address: {
         required: true,
         type: String
     },
     coords: {
         index: '2dsphere',
+        required: true,
         type: [Number]
     },
-    facilities: [{String}],
+    facilities: [String],
     img: String,
     openingHours: {
         monFri: String,
@@ -32,9 +39,12 @@ var locationSchema = new mongoose.Schema({
         min: 0,
         type: Number
     },
-    reviews: [reviewsSchema],
+    reviews: [reviewSchema],
     sidebar: String,
-    stop: Number,
+    stop: {
+        required: true,
+        type: Number
+    },
     title: {
         required: true,
         type: String
@@ -42,4 +52,10 @@ var locationSchema = new mongoose.Schema({
     twitter: String
 });
 
-mongoose.model('Location', locationSchema);
+const Location = mongoose.model('Location', locationSchema);
+const Review = mongoose.model('Review', reviewSchema);
+
+module.exports = {
+    Location,
+    Review
+};
