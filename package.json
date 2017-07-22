@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "live-start": "node ./bin/www",
-    "start": "nodemon ./bin/www"
+    "live-start": "node ./app.js",
+    "start": "export NODE_ENV=development && nodemon ./app.js",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha ./**/*.spec.js --verbose",
+    "test-watch": "nodemon --exec \"npm test\""
   },
-  "enginge": {
+  "engines": {
     "node": "~8.0.0",
     "npm": "~5.0.0"
   },
@@ -22,6 +24,9 @@
     "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }

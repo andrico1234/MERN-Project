@@ -1,15 +1,18 @@
+require('./config/config');
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var path = require('path');
+const port = process.env.PORT;
 
 require('./app_api/models/db');
 
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
-var routesApi = require('./app_api/routes/locations');
+var {router} = require('./app_api/routes/locations');
 
 var app = express();
 
@@ -24,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api', routesApi);
+app.use('/api', router);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -44,4 +47,11 @@ app.use(function(err, req, res) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(port, () => {
+
+  console.log(`listening on ${port}`);
+});
+
+module.exports = {
+  app
+};

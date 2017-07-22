@@ -18,4 +18,6 @@ router.get('/locations/:locationId/reviews/:reviewId', reviewController.reviewsF
 router.patch('/locations/:locationId/reviews/:reviewId', reviewController.reviewsUpdateOne);
 router.delete('/locations/:locationId/reviews/:reviewId', reviewController.reviewsDeleteOne);
 
-module.exports = router;
+module.exports = {
+    router
+};

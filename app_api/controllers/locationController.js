@@ -1,5 +1,4 @@
 const {ObjectID} = require('mongodb');
-const mongoose = require('mongoose');
 
 const {Location} = require('../models/locations');
 
@@ -45,7 +44,7 @@ const locationsList = (req, res) => {
         res.send({location});
     }).catch((err) => {
 
-        res.status(404).send(err);
+        res.status(400).send(err);
     });
 };
 
@@ -62,6 +61,11 @@ const locationsReadOne = (req, res) => {
 
         _id: locationId
     }).then((location) => {
+
+        if (!location) {
+
+            return res.status(404).send();
+        }
 
         res.send({location});
     }).catch((err) => {
