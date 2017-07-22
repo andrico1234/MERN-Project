@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const {ObjectID} = require('mongodb');
 
 const {Location, Review} = require('../models/locations');

@@ -19,7 +19,7 @@ mongoose.connection.on('disconnected', () => {
     console.log('Mongoose disconnected');
 });
 
-var gracefulExit = (message) => {
+let gracefulExit = (message) => {
 
     return new Promise((res) => {
 
