@@ -26,12 +26,21 @@ const locationSchema = new mongoose.Schema({
         required: true,
         type: [Number]
     },
-    facilities: [String],
+    facilities: String,
     img: String,
     openingHours: {
-        monFri: String,
-        sat: String,
-        sun: String
+        monFri: {
+            type: String,
+            "default": '9-5'
+        },
+        sat: {
+            type: String,
+            'default': '9-5'
+        },
+        sun: {
+            type: String,
+            'default': '9-5'
+        }
     },
     rating: {
         "default": 0,

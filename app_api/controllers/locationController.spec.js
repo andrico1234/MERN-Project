@@ -8,15 +8,22 @@ const {locations, populateLocations} = require('../seed/seed.js');
 
 beforeEach(populateLocations);
 
-xdescribe('POST /locations', () => {
+describe('POST /locations', () => {
 
-    let newLocation = new Location({
-        address: '456 Faux Pass',
-        coords: [4, 6],
+    let newLocation = {
+        address: "456 Faux Pass",
+        title: "The Gantry",
+        long: 51.507351,
+        lat: -0.127758,
+        openingHours: {
+            monFri: "10-10"
+        },
+        _id: "597c9923995acf3a1c17cb6c",
         reviews: [],
-        stop: 2,
-        title: 'The Gantry'
-    });
+        rating: 0,
+        stop: 5,
+        facilities: ""
+    };
 
     it('should post a new location', (done) => {
 
@@ -25,18 +32,16 @@ xdescribe('POST /locations', () => {
             .send({location: newLocation})
             .expect(200)
             .expect((res) => {
+                expect(res.body.title).toEqual(newLocation.title);
             })
             .end(done);
     });
 
-    xit('should send a 404 request', (done) => {
+    it('should send a 500 request if invalid data is sent', (done) => {
         request(app)
             .post('/api/locations')
-            .send({pointless: 'rubbish'})
-            .expect(404)
-            .expect((res) => {
-
-            })
+            .send({location: 'rubbish'})
+            .expect(500)
             .end(done);
     });
 });
@@ -85,11 +90,41 @@ describe('GET /locations/:locationId', () => {
     });
 });
 
-xdescribe('PATCH /locations/:locationId', () => {
+describe('PATCH /locations/:locationId', () => {
 
-    it('should update a single location', () => {
+    it('should update a single location', (done) => {
 
+        let body = {
+            location: {
+                title: 'The Brockley Mess'
+            }
+        };
 
+        request(app)
+            .patch(`/api/locations/${locations[0]._id}`)
+            .send(body)
+            .expect(200)
+            .expect((res) => {
+                expect(res.body.location._id).toEqual(locations[0]._id);
+                expect(res.body.location.title).toEqual(body.location.title);
+            })
+            .end(done);
+    });
+
+    it('should return 400 for invalid id', (done) => {
+
+        request(app)
+            .patch(`/api/locations/1234`)
+            .expect(400)
+            .end(done);
+    });
+
+    it('should return 404 if location doesn\'t exist', (done) => {
+
+        request(app)
+            .patch(`/api/locations/${new ObjectID}`)
+            .expect(400)
+            .end(done);
     });
 });
 

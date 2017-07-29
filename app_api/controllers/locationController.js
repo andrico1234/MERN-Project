@@ -10,7 +10,7 @@ const locationsCreate = (req, res) => {
         title: request.title,
         address: request.address,
         coords: [parseFloat(request.lat), parseFloat(request.long)],
-        facilities: request.facilities.split(", "),
+        facilities: request.facilities.split(''),
         img: request.img,
         openingHours: {
             monFri: request.openingHours.monFri,
@@ -54,7 +54,7 @@ const locationsReadOne = (req, res) => {
 
     if (!ObjectID.isValid(locationId)) {
 
-        return res.status(400).send();
+        return res.status(400).send({});
     }
 
     Location.findOne({
@@ -76,7 +76,27 @@ const locationsReadOne = (req, res) => {
 
 const locationsUpdateOne = (req, res) => {
 
-    return 1;
+    let locationId = req.params.locationId;
+    let body = req.body.location;
+
+    if (!ObjectID.isValid(locationId)) {
+
+        return res.status(400).send({error: 'invalidId'});
+    }
+
+    Location.findOneAndUpdate({
+        _id: locationId
+    }, {
+        $set: body
+    }, {
+        new: true
+    }).then((location) => {
+
+        res.send({location});
+    }).catch(() => {
+
+        res.status(400).send();
+    });
 };
 
 module.exports = {
