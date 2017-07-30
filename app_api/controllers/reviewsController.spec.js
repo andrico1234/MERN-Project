@@ -85,11 +85,42 @@ describe('GET /locations/:locationId/reviews/:reviewId', () => {
     });
 });
 
-xdescribe('PATCH /locations/:locationId/reviews/reviewId', () => {
+describe('PATCH /locations/:locationId/reviews/:reviewsId', () => {
 
-    it('should update a specific review', () => {
+    let locationId = locations[0]._id;
+    let reviewId = locations[0].reviews._id;
 
+    it('should update a single review', (done) => {
 
+        let body = {
+            reviewerName: 'sexy man',
+            rating: 4
+        };
+
+        request(app)
+            .patch(`/api/locations/${locationId}/reviews/${reviewId}`)
+            .send(body)
+            .expect(200)
+            .expect((res) => {
+                expect(res.body[0].reviewerName).toEqual(body.reviewerName);
+            })
+            .end(done);
+    });
+
+    it('should return 400 for invalid id', (done) => {
+
+        request(app)
+            .patch(`/api/locations/${locationId}/reviews/1234`)
+            .expect(400)
+            .end(done);
+    });
+
+    it('should return 404 if location doesn\'t exist', (done) => {
+
+        request(app)
+            .patch(`/api/locations/${locationId}/reviews/${new ObjectID}`)
+            .expect(400)
+            .end(done);
     });
 });
 

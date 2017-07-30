@@ -9,20 +9,18 @@ const addReview = (req, res, location) => {
         res.status(404).send('Reviews not found');
     }
 
-    let newReview = new Review({
+    const newReview = new Review({
         rating: req.body.rating,
         reviewBody: req.body.reviewBody,
         reviewerName: req.body.reviewerName
     });
 
     location.reviews.push(newReview);
-
-    let thisReview;
-
     location.save().then((locationRes) => {
 
+        const thisReview = locationRes.reviews[locationRes.reviews.length - 1];
+
         updateAverageRating(location._id);
-        thisReview = locationRes.reviews[locationRes.reviews.length - 1];
         res.status(201).send(thisReview);
     }).catch((err) => {
 
@@ -32,7 +30,7 @@ const addReview = (req, res, location) => {
 
 const reviewsCreate = (req, res) => {
 
-    let locationId = req.params.locationId;
+    const locationId = req.params.locationId;
 
     if (!ObjectID.isValid(locationId)) {
 
@@ -57,8 +55,8 @@ const reviewsDeleteOne = (req, res) => {
 
 const reviewsFind = (req, res) => {
 
-    let locationId = req.params.locationId;
-    let reviewId = req.params.reviewId;
+    const locationId = req.params.locationId;
+    const reviewId = req.params.reviewId;
 
     if (!ObjectID.isValid(locationId) || !ObjectID.isValid(reviewId)) {
 
@@ -67,11 +65,9 @@ const reviewsFind = (req, res) => {
 
     Location.findOne({_id: locationId}).select('name reviews').then((location) => {
 
-        let review;
-
         if (location.reviews.length > 0) {
 
-            review = location.reviews.id(reviewId);
+            const review = location.reviews.id(reviewId);
 
             if (!review) {
 
@@ -96,20 +92,43 @@ const reviewsFind = (req, res) => {
     });
 };
 
-const reviewsUpdateOne = (res, req) => {
+const reviewsUpdateOne = (req, res) => {
 
-    return 1;
+    const body = req.body;
+    const locationId = req.params.locationId;
+    const reviewId = req.params.reviewId;
+
+    if (!ObjectID.isValid(locationId) || !ObjectID.isValid(reviewId)) {
+
+        return res.status(400).send({'message': 'location ID was incorrect'});
+    }
+
+    Location.findOneAndUpdate({
+        _id: locationId,
+        "reviews._id": reviewId
+    }, {
+        "reviews.$": body
+    }, {
+        new: true
+    }).then((location) => {
+
+        updateAverageRating(location._id);
+        res.send(location.reviews);
+    }).catch((err) => {
+
+        res.status(400).send(err);
+    });
 };
 
 const updateAverageRating = (id) => {
 
     Location.findById(id).select('rating reviews').then((location) => {
 
-        let ratingAverage, ratingTotal, reviewCount;
+        let ratingTotal;
 
         if (location.reviews && location.reviews.length > 0) {
 
-            reviewCount = location.reviews.length;
+            const reviewCount = location.reviews.length;
             ratingTotal = 0;
 
             for (let i = 0; i < reviewCount; i++) {
@@ -117,7 +136,7 @@ const updateAverageRating = (id) => {
                 ratingTotal = ratingTotal + location.reviews[i].rating;
             }
 
-            ratingAverage = Math.round((ratingTotal / reviewCount) * 10) / 10;
+            const ratingAverage = Math.round((ratingTotal / reviewCount) * 10) / 10;
             location.rating = ratingAverage;
             location.save().then(() => {
 

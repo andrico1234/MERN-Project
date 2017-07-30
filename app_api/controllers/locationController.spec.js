@@ -3,7 +3,6 @@ const request = require('supertest');
 const {ObjectID} = require('mongodb');
 
 const {app} = require('../../app');
-const {Location} = require('../models/locations');
 const {locations, populateLocations} = require('../seed/seed.js');
 
 beforeEach(populateLocations);
@@ -38,6 +37,7 @@ describe('POST /locations', () => {
     });
 
     it('should send a 500 request if invalid data is sent', (done) => {
+
         request(app)
             .post('/api/locations')
             .send({location: 'rubbish'})

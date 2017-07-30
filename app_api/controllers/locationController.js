@@ -4,8 +4,8 @@ const {Location} = require('../models/locations');
 
 const locationsCreate = (req, res) => {
 
-    let request = req.body.location;
-    let location = new Location({
+    const request = req.body.location;
+    const location = new Location({
 
         title: request.title,
         address: request.address,
@@ -50,7 +50,7 @@ const locationsList = (req, res) => {
 
 const locationsReadOne = (req, res) => {
 
-    let locationId = req.params.locationId;
+    const locationId = req.params.locationId;
 
     if (!ObjectID.isValid(locationId)) {
 
@@ -76,8 +76,8 @@ const locationsReadOne = (req, res) => {
 
 const locationsUpdateOne = (req, res) => {
 
-    let locationId = req.params.locationId;
-    let body = req.body.location;
+    const locationId = req.params.locationId;
+    const body = req.body.location;
 
     if (!ObjectID.isValid(locationId)) {
 
@@ -85,7 +85,7 @@ const locationsUpdateOne = (req, res) => {
     }
 
     Location.findOneAndUpdate({
-        _id: locationId
+        _id: locationId,
     }, {
         $set: body
     }, {
