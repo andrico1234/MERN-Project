@@ -34,7 +34,27 @@ const locationsCreate = (req, res) => {
 
 const locationsDeleteOne = (req, res) => {
 
-    return 1;
+    const locationId = req.params.locationId;
+
+    if(!ObjectID.isValid(locationId)) {
+
+        return res.status(400).send({});
+    }
+
+    Location.findOneAndRemove({
+    _id: locationId
+    }).then((location) => {
+
+        if (!location) {
+
+            return res.status(404).send();
+        }
+
+        res.send({location});
+    }).catch((err) => {
+
+        res.status(404).send(err);
+    });
 };
 
 const locationsList = (req, res) => {
@@ -58,7 +78,6 @@ const locationsReadOne = (req, res) => {
     }
 
     Location.findOne({
-
         _id: locationId
     }).then((location) => {
 

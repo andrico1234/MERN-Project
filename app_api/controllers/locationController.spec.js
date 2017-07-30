@@ -128,10 +128,32 @@ describe('PATCH /locations/:locationId', () => {
     });
 });
 
-xdescribe('DELETE /locations/:locationId', () => {
+describe('DELETE /locations/:locationId', () => {
 
-    it('should delete a single location', () => {
+    it('should delete a single location', (done) => {
 
+        request(app)
+            .delete(`/api/locations/${locations[0]._id}`)
+            .expect(200)
+            .expect((res) => {
+                expect(res.body.location._id).toEqual(locations[0]._id);
+            })
+            .end(done);
+    });
 
+    it('should send 400 request if ID doesn\t exist', (done) => {
+
+        request(app)
+            .delete(`/api/locations/1234`)
+            .expect(400)
+            .end(done);
+    });
+
+    it('should send a 404 request if location cannot be found', (done) => {
+
+        request(app)
+            .delete(`/api/locations/${new ObjectID}`)
+            .expect(404)
+            .end(done);
     });
 });
