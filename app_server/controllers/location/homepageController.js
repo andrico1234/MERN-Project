@@ -1,4 +1,4 @@
-var homepageController = (req, res) => {
+const homepageController = (req, res) => {
 
     res.render('locations-list', {
         locations: [{

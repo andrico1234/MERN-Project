@@ -1,4 +1,4 @@
-var reviewController = (req, res) => {
+const reviewController = (req, res) => {
 
     res.render('location-review-form', {
         title: 'The Orchard'

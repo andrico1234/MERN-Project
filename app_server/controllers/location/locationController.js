@@ -1,4 +1,11 @@
-var locationController = (req, res) => {
+const request = require('request');
+const server = process.env.NODE_ENV === 'production' ? 'https://brockley-mern.herokuapp.com/' : 'http://localhost:3000';
+
+const apiOptions = {
+    server
+};
+
+const locationController = (req, res) => {
 
     res.render('location-detail', {
         address: '340 Brockley Road, SE4 2BT',
