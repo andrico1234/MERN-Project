@@ -50,7 +50,31 @@ const reviewsCreate = (req, res) => {
 
 const reviewsDeleteOne = (req, res) => {
 
-    return 1;
+    const locationId = req.params.locationId;
+    const reviewId = req.params.reviewId;
+
+    if (!ObjectID.isValid(locationId) || !ObjectID.isValid(reviewId)) {
+
+        return res.status(400).send({'message': 'ids were incorrect'});
+    }
+
+    Location.findOneAndUpdate({
+        _id: locationId,
+        "reviews._id": reviewId
+    }, {
+        "$pull": {
+            "reviews": {
+                "_id": reviewId
+            }
+        }
+    }).then((location) => {
+
+        updateAverageRating(location._id);
+        res.send(location.reviews);
+    }).catch((err) => {
+
+        res.status(404).send(err);
+    });
 };
 
 const reviewsFind = (req, res) => {

@@ -10,7 +10,7 @@ beforeEach(populateLocations);
 
 describe('POST /locations/:locationId/reviews', () => {
 
-    let newReview = new Review({
+    const newReview = new Review({
         rating: 5,
         reviewBody: '4334',
         reviewerName: 'Rico'
@@ -39,7 +39,7 @@ describe('POST /locations/:locationId/reviews', () => {
 
     it('should return a 404 error review cannot be posted', (done) => {
 
-        let fuckedReview = new Review({
+        const fuckedReview = new Review({
             rating: 5,
             reviewBody: '4334',
         });
@@ -54,8 +54,8 @@ describe('POST /locations/:locationId/reviews', () => {
 
 describe('GET /locations/:locationId/reviews/:reviewId', () => {
 
-    let locationId = locations[0]._id;
-    let reviewId = locations[0].reviews._id;
+    const locationId = locations[0]._id;
+    const reviewId = locations[0].reviews._id;
 
     it('should get a specific review', (done) => {
 
@@ -87,8 +87,8 @@ describe('GET /locations/:locationId/reviews/:reviewId', () => {
 
 describe('PATCH /locations/:locationId/reviews/:reviewsId', () => {
 
-    let locationId = locations[0]._id;
-    let reviewId = locations[0].reviews._id;
+    const locationId = locations[0]._id;
+    const reviewId = locations[0].reviews._id;
 
     it('should update a single review', (done) => {
 
@@ -124,10 +124,35 @@ describe('PATCH /locations/:locationId/reviews/:reviewsId', () => {
     });
 });
 
-xdescribe('DELETE /locations/:locationId/reviews/reviewId', () => {
+describe('DELETE /locations/:locationId/reviews/:reviewId', () => {
 
-    it('should delete a specific review', () => {
+    const locationId = locations[0]._id;
+    const reviewId = locations[0].reviews._id;
 
+    it('should delete a specific review', (done) => {
 
+        request(app)
+            .delete(`/api/locations/${locationId}/reviews/${reviewId}`)
+            .expect(200)
+            .expect((res) => {
+                expect(res.body[0]._id).toEqual(reviewId);
+            })
+            .end(done);
+    });
+
+    it('should send 400 request if review ID doesn\t exist', (done) => {
+
+        request(app)
+            .delete(`/api/locations/${locationId}/reviews/1234`)
+            .expect(400)
+            .end(done);
+    });
+
+    it('should send a 404 request if review cannot be found', (done) => {
+
+        request(app)
+            .delete(`/api/locations/${locationId}/reviews/${new ObjectID}`)
+            .expect(404)
+            .end(done);
     });
 });
