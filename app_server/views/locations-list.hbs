@@ -6,9 +6,10 @@
 
     <div class="location-list-sidebar-wrapper">
         <div class="list-wrapper">
+            <div class="error">{{message}}</div>
             {{#each locations}}
                 <div class="list-item">
-                    <h3 class="name">{{name}}</h3>
+                    <h3 class="name">{{title}}</h3>
                     <p class="address">{{address}}</p>
                     {{#each facilities}}<span>{{facility}}</span>{{/each}}
                     <p class="stop">No.{{stop}}</p>

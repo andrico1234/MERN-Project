@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const {genericPageController} = require('../controllers/about/genericPageController'), {homepageController} = require('../controllers/location/homepageController'), {locationController} = require('../controllers/location/locationController'), {reviewController} = require('../controllers/location/reviewsController');
+const {genericPageController} = require('../controllers/about/genericPageController'), {homepageList} = require('../controllers/location/homepageController'), {locationController} = require('../controllers/location/locationController'), {reviewController} = require('../controllers/location/reviewsController');
 
-router.get('/', homepageController);
+router.get('/', homepageList);
 router.get('/about', genericPageController);
 router.get('/location/', locationController);
 router.get('/location/review/new', reviewController);
