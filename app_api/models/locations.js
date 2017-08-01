@@ -26,7 +26,7 @@ const locationSchema = new mongoose.Schema({
         required: true,
         type: [Number]
     },
-    facilities: String,
+    facilities: [String],
     img: String,
     openingHours: {
         monFri: {

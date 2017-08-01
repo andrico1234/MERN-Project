@@ -1,51 +1,59 @@
+const moment = require('moment');
 const request = require('request');
-const server = process.env.NODE_ENV === 'production' ? 'https://brockley-mern.herokuapp.com/' : 'http://localhost:3000';
 
-const apiOptions = {
-    server
-};
+const {apiOptions} = require('../../services/requestService');
 
-const locationController = (req, res) => {
+const locationCall = (req, res) => {
 
-    res.render('location-detail', {
-        address: '340 Brockley Road, SE4 2BT',
-        coords: {
-            lat: 51.455703,
-            long: -0.036580
-        },
-        description: 'get from google',
-        facilities: [{facility: 'Coffee'}, {facility: 'Baby Chairs'}, {facility: 'WiFi'}],
-        img: '/arlopic',
-        openingHours: {
-            monFri: '7am - 7pm',
-            sat: '9am - 10pm',
-            sun: 'Closed'
-        },
-        rating: 4.7,
-        reviews: [{
-            rating: 5,
-            reviewerName: 'Pablo',
-            reviewDate: '12/04/1993',
-            reviewText: 'excellent shit dawg'
-        }, {
-            rating: 4,
-            reviewerName: 'Pietro',
-            reviewDate: '12/04/1993',
-            reviewText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua`
-        }, {
-            rating: 5,
-            reviewerName: 'Peter',
-            reviewDate: '12/04/1993',
-            reviewText: 'excellent shit dawg'
-        }],
-        sidebar: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-        stop: 2,
-        title: 'Arlo and Moe',
-        twitter: '/twitterlink'
+    const path = '/api/locations/' + req.params.locationId;
+    const requestOptions = {
+        json: {},
+        method: 'GET',
+        url: apiOptions.server + path
+    };
+
+    request(requestOptions, (err, response, body) => {
+
+        if (response.statusCode === 200) {
+            body.location.reviews.forEach((review) => {
+
+                review.reviewDate = moment(review.reviewDate).format('LLL');
+            });
+
+            renderDetailPage(req, res, body.location);
+        } else {
+
+            showError(req, res, response.statusCode)
+        }
     });
 };
 
+const renderDetailPage = (req, res, locationInfo) => {
+
+    res.render('location-detail', locationInfo);
+};
+
+const showError = (req, res, status) => {
+
+    let message;
+
+    if (status === 404) {
+
+        message = '404, page could not be found'
+    } else {
+
+        message = 'I\'m afraid something\'s gone wrong'
+    }
+
+    res.status(status);
+    res.render('error', {
+        error: {
+            status
+        },
+        message
+    })
+};
+
 module.exports = {
-    locationController
+    locationCall
 };

@@ -1,4 +1,4 @@
-var genericPageController = (req, res) => {
+const genericPageController = (req, res) => {
 
     res.render('index', {
         content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

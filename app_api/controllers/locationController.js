@@ -10,7 +10,7 @@ const locationsCreate = (req, res) => {
         title: request.title,
         address: request.address,
         coords: [parseFloat(request.lat), parseFloat(request.long)],
-        facilities: request.facilities.split(''),
+        facilities: request.facilities.split(' '),
         img: request.img,
         openingHours: {
             monFri: request.openingHours.monFri,

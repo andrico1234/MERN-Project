@@ -17,11 +17,11 @@
             </div>
             <div class="facilities">
                 <h3 class="header">Facilities</h3>
-                {{#each facilities}}<span>{{facility}}</span>{{/each}}
+                {{#each facilities}}<span>{{this}}</span>{{/each}}
             </div>
             <div class="map">
                 <h3 class="header">Location Map</h3>
-                <iframe frameborder="0" src="https://www.google.co.uk/maps/embed/v1/place?key=AIzaSyBE9cgGx0m_7Us1rJSjyLUmzEk8TZWnKqY&q={{coords.lat}},{{coords.long}}"></iframe>
+                <iframe frameborder="0" src="https://www.google.co.uk/maps/embed/v1/place?key=AIzaSyBE9cgGx0m_7Us1rJSjyLUmzEk8TZWnKqY&q={{coords.[0]}},{{coords.[1]}}"></iframe>
             </div>
         </div>
     </div>

@@ -9,9 +9,9 @@
             <div class="error">{{message}}</div>
             {{#each locations}}
                 <div class="list-item">
-                    <h3 class="name">{{title}}</h3>
+                    <a href="/location/{{_id}}"><h3 class="name">{{title}}</h3></a>
                     <p class="address">{{address}}</p>
-                    {{#each facilities}}<span>{{facility}}</span>{{/each}}
+                    {{#each facilities}}<span>{{this}}</span>{{/each}}
                     <p class="stop">No.{{stop}}</p>
                 </div>
             {{/each}}

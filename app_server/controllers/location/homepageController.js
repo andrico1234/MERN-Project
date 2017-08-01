@@ -1,9 +1,6 @@
 const request = require('request');
-const server = process.env.NODE_ENV === 'production' ? 'https://brockley-mern.herokuapp.com/' : 'http://localhost:3000';
 
-const apiOptions = {
-    server
-};
+const {apiOptions} = require('../../services/requestService');
 
 const homepageList = (req, res) => {
 
