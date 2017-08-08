@@ -1,10 +1,12 @@
 .location-detail-wrapper {
   @include page-wrapper(0);
 
-  button {
+  .button {
     @extend %button;
+    padding: 12px 0;
     position: absolute;
     right: 20px;
+    text-align: center;
     top: 0;
   }
 

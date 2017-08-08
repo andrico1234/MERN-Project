@@ -1,29 +1,15 @@
-const moment = require('moment');
-const request = require('request');
-
-const {apiOptions} = require('../../services/requestService');
+const {getLocationInfo} = require('../../services/getLocationInfo');
 
 const locationCall = (req, res) => {
 
-    const path = '/api/locations/' + req.params.locationId;
-    const requestOptions = {
-        json: {},
-        method: 'GET',
-        url: apiOptions.server + path
-    };
+    getLocationInfo(req, res, (req, res, data) => {
 
-    request(requestOptions, (err, response, body) => {
+        if (data.title) {
 
-        if (response.statusCode === 200) {
-            body.location.reviews.forEach((review) => {
-
-                review.reviewDate = moment(review.reviewDate).format('LLL');
-            });
-
-            renderDetailPage(req, res, body.location);
+            renderDetailPage(req, res, data);
         } else {
 
-            showError(req, res, response.statusCode)
+            showError(req, res, data);
         }
     });
 };
@@ -33,25 +19,15 @@ const renderDetailPage = (req, res, locationInfo) => {
     res.render('location-detail', locationInfo);
 };
 
-const showError = (req, res, status) => {
+const showError = (req, res, data) => {
 
-    let message;
-
-    if (status === 404) {
-
-        message = '404, page could not be found'
-    } else {
-
-        message = 'I\'m afraid something\'s gone wrong'
-    }
-
-    res.status(status);
+    res.status(data.status);
     res.render('error', {
         error: {
-            status
+            status: data.status
         },
-        message
-    })
+        message: data.message
+    });
 };
 
 module.exports = {

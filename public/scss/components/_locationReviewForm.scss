@@ -5,6 +5,7 @@
     @extend %button;
     background-color: white;
     display: block;
+    height: 40px;
     margin: 0 0 0 auto;
 
     @media (min-width: $breakpoint-medium) {
