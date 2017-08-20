@@ -7,7 +7,6 @@ const locationsCreate = (req, res) => {
     const request = req.body.location;
     const location = new Location({
 
-        title: request.title,
         address: request.address,
         coords: [parseFloat(request.lat), parseFloat(request.long)],
         facilities: request.facilities.split(' '),
@@ -20,12 +19,14 @@ const locationsCreate = (req, res) => {
         rating: request.rating,
         sidebar: request.sidebar,
         stop: request.stop,
+        title: request.title,
         twitter: request.twitter
     });
 
     location.save().then((doc) => {
 
         res.send(doc);
+
     }).catch((err) => {
 
         res.status(400).send(err);
@@ -36,13 +37,13 @@ const locationsDeleteOne = (req, res) => {
 
     const locationId = req.params.locationId;
 
-    if(!ObjectID.isValid(locationId)) {
+    if (!ObjectID.isValid(locationId)) {
 
         return res.status(400).send({});
     }
 
     Location.findOneAndRemove({
-    _id: locationId
+        _id: locationId
     }).then((location) => {
 
         if (!location) {
@@ -51,6 +52,7 @@ const locationsDeleteOne = (req, res) => {
         }
 
         res.send({location});
+
     }).catch((err) => {
 
         res.status(404).send(err);
@@ -62,6 +64,7 @@ const locationsList = (req, res) => {
     Location.find().sort({'stop': 1}).then((location) => {
 
         res.send({location});
+
     }).catch((err) => {
 
         res.status(400).send(err);
@@ -87,6 +90,7 @@ const locationsReadOne = (req, res) => {
         }
 
         res.send({location});
+
     }).catch((err) => {
 
         res.status(404).send(err);
@@ -104,7 +108,7 @@ const locationsUpdateOne = (req, res) => {
     }
 
     Location.findOneAndUpdate({
-        _id: locationId,
+        _id: locationId
     }, {
         $set: body
     }, {
@@ -112,6 +116,7 @@ const locationsUpdateOne = (req, res) => {
     }).then((location) => {
 
         res.send({location});
+
     }).catch(() => {
 
         res.status(400).send();
@@ -123,5 +128,5 @@ module.exports = {
     locationsDeleteOne,
     locationsList,
     locationsReadOne,
-    locationsUpdateOne,
+    locationsUpdateOne
 };

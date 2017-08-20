@@ -22,6 +22,7 @@ const addReview = (req, res, location) => {
 
         updateAverageRating(location._id);
         res.status(201).send(thisReview);
+
     }).catch((err) => {
 
         res.status(404).send(err);
@@ -42,6 +43,7 @@ const reviewsCreate = (req, res) => {
     }).select('reviews').then((reviews) => {
 
         addReview(req, res, reviews);
+
     }).catch((err) => {
 
         res.status(404).send(err);
@@ -71,6 +73,7 @@ const reviewsDeleteOne = (req, res) => {
 
         updateAverageRating(location._id);
         res.send(location.reviews);
+
     }).catch((err) => {
 
         res.status(404).send(err);
@@ -96,6 +99,7 @@ const reviewsFind = (req, res) => {
             if (!review) {
 
                 res.status(404).send({'message': 'review not found'});
+
             } else {
 
                 res.send({
@@ -106,10 +110,12 @@ const reviewsFind = (req, res) => {
                     }
                 });
             }
+
         } else {
 
             res.status(404).send({'message': 'no reviews for this location'});
         }
+
     }).catch((err) => {
 
         return res.status(404).send(err);
@@ -138,6 +144,7 @@ const reviewsUpdateOne = (req, res) => {
 
         updateAverageRating(location._id);
         res.send(location.reviews);
+
     }).catch((err) => {
 
         res.status(400).send(err);
@@ -165,11 +172,13 @@ const updateAverageRating = (id) => {
             location.save().then(() => {
 
                 console.log("Average rating updated to", ratingAverage);
+
             }).catch((err) => {
 
                 console.log(err);
             });
         }
+
     }).catch((err) => {
 
         console.log('error setting average', err);

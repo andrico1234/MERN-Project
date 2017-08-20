@@ -1,12 +1,21 @@
+const {apiOptions} = require('../../services/requestService');
 const {getLocationInfo} = require('../../services/getLocationInfo');
 
 const locationCall = (req, res) => {
 
-    getLocationInfo(req, res, (req, res, data) => {
+    const path = '/api/locations/' + req.params.locationId;
+    const requestOptions = {
+        json: {},
+        method: 'GET',
+        url: apiOptions.server + path
+    };
+
+    getLocationInfo(req, res, requestOptions, (req, res, data) => {
 
         if (data.title) {
 
-            renderDetailPage(req, res, data);
+            renderReviewForm(req, res, data);
+
         } else {
 
             showError(req, res, data);
@@ -14,9 +23,9 @@ const locationCall = (req, res) => {
     });
 };
 
-const renderDetailPage = (req, res, locationInfo) => {
+const renderReviewForm = (req, res, location) => {
 
-    res.render('location-detail', locationInfo);
+    res.render('location-detail', location);
 };
 
 const showError = (req, res, data) => {

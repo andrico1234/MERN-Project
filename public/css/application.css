@@ -21,7 +21,8 @@
 body {
   background-color: #efefef;
   box-sizing: border-box;
-  font: 14px "Montserrat", sans-serif; }
+  font: 14px "Montserrat", sans-serif;
+  min-height: 100vh; }
 
 a {
   color: #d66a00;

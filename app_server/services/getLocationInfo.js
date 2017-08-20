@@ -1,16 +1,7 @@
 const moment = require('moment');
 const request = require('request');
 
-const {apiOptions} = require('./requestService');
-
-const getLocationInfo = ((req, res, callback) => {
-
-    const path = '/api/locations/' + req.params.locationId;
-    const requestOptions = {
-        json: {},
-        method: 'GET',
-        url: apiOptions.server + path
-    };
+const getLocationInfo = ((req, res, requestOptions, callback) => {
 
     request(requestOptions, (err, response, body) => {
 
@@ -22,6 +13,11 @@ const getLocationInfo = ((req, res, callback) => {
             });
 
             callback(req, res, body.location);
+
+        } else if (response.statusCode === 201) {
+
+            callback(req, res, body);
+
         } else {
 
             const errorResponse = showError(req, res, response.statusCode);
@@ -37,6 +33,7 @@ const showError = (req, res, status) => {
     if (status === 404) {
 
         message = '404, page could not be found'
+
     } else {
 
         message = 'I\'m afraid something\'s gone wrong'
